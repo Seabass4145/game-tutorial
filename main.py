@@ -61,7 +61,7 @@ knight_health_bar = HealthBar(100, screen_height - bottom_panel + 40, knight.hp,
 bandit1_health_bar = HealthBar(550, screen_height - bottom_panel + 40, bandit1.hp, bandit1.max_hp)
 bandit2_health_bar = HealthBar(550, screen_height - bottom_panel + 100, bandit2.hp, bandit2.max_hp)
 
-mixer.music.play(-1)
+# mixer.music.play(-1)
 running = True
 while running:
 
