@@ -59,7 +59,7 @@ def draw_panel():
 
 pygame.mixer.Sound.play(fuckS)
 
- knight = Fighter(screen, 200, 260, 'Knight', 30, 10, 3)
+knight = Fighter(screen, 200, 260, 'Knight', 30, 10, 3)
 bandit1 = Fighter(screen, 550, 270, 'Bandit', 20, 6, 1)
 bandit2 = Fighter(screen, 700, 270, 'Bandit', 20, 6, 1)
 
