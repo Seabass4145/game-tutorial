@@ -6,7 +6,6 @@ mixer.init()
 
 mixer.music.load('Adventure.mp3')
 mixer.music.set_volume(1)
-mixer.music.play()
 
 clock = pygame.time.Clock()
 fps = 60
@@ -33,6 +32,9 @@ background_img = pygame.image.load('img/Background/background.png').convert_alph
 # panel image
 panel_img = pygame.image.load('img/Icons/panel.png').convert_alpha()
 
+# import sound
+fuckS = pygame.mixer.Sound('SCREAM_4.mp3')
+
 
 # function to draw text
 def draw_text(text, font, text_col, x, y):
@@ -55,7 +57,9 @@ def draw_panel():
         draw_text(f'{i.name} HP: {i.hp}', font, red, 550, (screen_height - bottom_panel + 10) + count * 60)
 
 
-knight = Fighter(screen, 200, 260, 'Knight', 30, 10, 3)
+pygame.mixer.Sound.play(fuckS)
+
+ knight = Fighter(screen, 200, 260, 'Knight', 30, 10, 3)
 bandit1 = Fighter(screen, 550, 270, 'Bandit', 20, 6, 1)
 bandit2 = Fighter(screen, 700, 270, 'Bandit', 20, 6, 1)
 
@@ -63,8 +67,10 @@ bandit_list = []
 bandit_list.append(bandit1)
 bandit_list.append(bandit2)
 
+mixer.music.play(-1)
 running = True
 while running:
+
     clock.tick(fps)
 
     # draw background
