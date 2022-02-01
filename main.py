@@ -1,11 +1,13 @@
 from pygame import *
 from fighter import *
+from config import *
+from health import *
 
 pygame.init()
 mixer.init()
 
 mixer.music.load('Adventure.mp3')
-mixer.music.set_volume(1)
+mixer.music.set_volume(0.7)
 
 clock = pygame.time.Clock()
 fps = 60
@@ -20,11 +22,6 @@ pygame.display.set_caption('Battle')
 
 # define fonts
 font = pygame.font.SysFont('Times New Roman', 26)
-
-# define colors
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
 
 # load images
 # background image
@@ -57,15 +54,17 @@ def draw_panel():
         draw_text(f'{i.name} HP: {i.hp}', font, red, 550, (screen_height - bottom_panel + 10) + count * 60)
 
 
-pygame.mixer.Sound.play(fuckS)
-
-knight = Fighter(screen, 200, 260, 'Knight', 30, 10, 3)
-bandit1 = Fighter(screen, 550, 270, 'Bandit', 20, 6, 1)
-bandit2 = Fighter(screen, 700, 270, 'Bandit', 20, 6, 1)
+knight = Fighter(200, 260, 'Knight', 30, 10, 3)
+bandit1 = Fighter(550, 270, 'Bandit', 20, 6, 1)
+bandit2 = Fighter(700, 270, 'Bandit', 20, 6, 1)
 
 bandit_list = []
 bandit_list.append(bandit1)
 bandit_list.append(bandit2)
+
+knight_health_bar = HealthBar(100, screen_height - bottom_panel + 40, knight.hp, knight.max_hp)
+bandit1_health_bar = HealthBar(100, screen_height - bottom_panel + 40, bandit1.hp, bandit1.max_hp)
+bandit2_health_bar = HealthBar(100, screen_height - bottom_panel + 100, bandit2.hp, bandit2.max_hp)
 
 mixer.music.play(-1)
 running = True
